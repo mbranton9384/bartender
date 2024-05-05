@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-3">
+    <h1>Search Results</h1>
+    {% if drinks %}
+        <div class="row">
+            {% for cocktail in drinks %}
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="{{ cocktail.strDrinkThumb }}" class="card-img-top" alt="{{ cocktail.strDrink }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ cocktail.strDrink }}</h5>
+                            <p class="card-text">{{ cocktail.strInstructions }}</p>
+                            <form method="POST" action="{{ url_for('save_cocktail', cocktail_id=cocktail.idDrink) }}">
+                                <input type="hidden" name="cocktail_name" value="{{ cocktail.strDrink }}">
+                                <button type="submit" class="btn btn-primary">Save Cocktail</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No cocktails found.</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+
+

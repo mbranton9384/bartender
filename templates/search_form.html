@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-3">
+    <h1>Search Cocktails</h1>
+    <form action="/search_results" method="POST">
+        <div class="form-group">
+            <label for="search_query">Search Query</label>
+            <input type="text" class="form-control" id="search_query" name="search_query" placeholder="Enter drink name">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>
+{% endblock %}
