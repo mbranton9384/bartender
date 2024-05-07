@@ -4,7 +4,7 @@
 <div class="container mt-3">
     <h1>Sign Up</h1>
     <form method="POST">
-        {{ form.hidden_tag() }}  <!-- Include CSRF token -->
+        {{ form.hidden_tag() }}
         <div class="form-group">
             {{ form.username.label(class="form-label") }}
             {{ form.username(class="form-control") }}

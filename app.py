@@ -41,14 +41,14 @@ def search_form():
 
 @app.route('/search_cocktail', methods=['GET'])
 def search_cocktail():
-    search_query = request.args.get('q')  # Get search query from URL parameter
+    search_query = request.args.get('q') 
     api_url = f'https://www.thecocktaildb.com/api/json/v1/1/search.php?s={search_query}'
     response = requests.get(api_url)
 
     if response.status_code == 200:
         data = response.json()
-        if data['drinks']:  # Check if drinks are found
-            # Assuming there's only one result, you can modify as needed
+        if data['drinks']:  
+            
             cocktail_id = data['drinks'][0]['idDrink']
             return get_cocktail_details(cocktail_id)
         else:
